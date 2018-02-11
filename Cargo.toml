@@ -1,0 +1,10 @@
+[package]
+name = "gravity_defied_rs"
+version = "0.1.0"
+authors = ["loomaclin <loo.maclin@protonmail.com>"]
+
+[dependencies]
+ggez = "0.3.3"
+byteorder = "1.1.0"
+nphysics2d = "0.7.2"
+nalgebra   = "0.13"
