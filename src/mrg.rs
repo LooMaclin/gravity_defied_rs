@@ -1,6 +1,6 @@
 use level::Level;
 use std::convert::TryFrom;
-use byteorder::{BigEndian, ByteOrder, ReadBytesExt};
+
 use path::Path;
 
 #[derive(Debug)]
@@ -14,7 +14,7 @@ impl TryFrom<Vec<u8>> for Mrg {
     fn try_from(content: Vec<u8>) -> Result<Mrg, Self::Error> {
         let mut levels: Vec<Level> = Vec::with_capacity(3);
         let mut offset = 0;
-        for i in 0..3 {
+        for _ in 0..3 {
             let new_level = Level::try_from(&content[offset..]).expect(
                 "Error when converting level from &[u8]",
             );

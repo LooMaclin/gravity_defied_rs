@@ -1,7 +1,7 @@
 use point::Point;
 use std::convert::TryFrom;
-use byteorder::{BigEndian, ByteOrder, ReadBytesExt};
-use ggez::graphics::Point as GgezPoint;
+use byteorder::{BigEndian, ByteOrder};
+use ggez::graphics::Point2 as GgezPoint;
 
 const START_TRACK_DESCRIPTION_MARK: u8 = 0x33;
 
@@ -36,7 +36,7 @@ impl<'a> TryFrom<&'a [u8]> for Path {
             let mut offset = 0;
             let content = &content[26..];
             let mut points = Vec::with_capacity(64);
-            for i in 0..points_count - 1 {
+            for _ in 0..points_count - 1 {
                 let point = Point::try_from(&content[offset..]).expect(
                     "Не удалось прочесть Point из файла",
                 );
@@ -74,7 +74,7 @@ impl<'a> TryFrom<&'a [u8]> for Path {
 
 impl Into<Vec<GgezPoint>> for Path {
     fn into(self) -> Vec<GgezPoint> {
-        let mut new_points = vec![GgezPoint { x: 200.0, y: 200.0 }];
+        let mut new_points = vec![GgezPoint::new(200.0,200.0)];
         for item in self.points.windows(2).enumerate() {
             let x = new_points[item.0].x as i32 + item.1[0].x as i32;
             let mut y = new_points[item.0].y as i32 - item.1[0].y as i32;

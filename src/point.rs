@@ -1,6 +1,7 @@
 use std::convert::TryFrom;
-use byteorder::{BigEndian, ByteOrder, ReadBytesExt};
-use ggez;
+use ggez::graphics::Point2 as GgezPoint;
+
+
 
 #[derive(Debug, Copy, Clone)]
 pub struct Point {
@@ -14,9 +15,9 @@ impl Point {
     }
 }
 
-impl Into<ggez::graphics::Point> for Point {
-    fn into(self) -> ggez::graphics::Point {
-        ggez::graphics::Point::new(self.x as f32, self.y as f32)
+impl Into<GgezPoint> for Point {
+    fn into(self) -> GgezPoint {
+        GgezPoint::new(self.x as f32, self.y as f32)
     }
 }
 

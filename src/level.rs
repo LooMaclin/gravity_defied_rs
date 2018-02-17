@@ -1,6 +1,6 @@
 use std::convert::TryFrom;
 use track_name::TrackName;
-use byteorder::{ByteOrder, BigEndian, ReadBytesExt};
+use byteorder::{ByteOrder, BigEndian};
 
 #[derive(Debug)]
 pub struct Level {
@@ -26,7 +26,7 @@ impl<'a> TryFrom<&'a [u8]> for Level {
         let mut tracks = Vec::with_capacity(64);
         let mut offset: usize = 0;
         let content = &content[4..];
-        for i in 0..count {
+        for _ in 0..count {
             let new_track_name = TrackName::try_from(&content[offset..]).expect(
                 "Error when converting TrackName from &[u8]",
             );

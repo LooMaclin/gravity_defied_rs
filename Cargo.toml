@@ -4,7 +4,8 @@ version = "0.1.0"
 authors = ["loomaclin <loo.maclin@protonmail.com>"]
 
 [dependencies]
-ggez = "0.3.3"
-byteorder = "1.1.0"
-nphysics2d = "0.7.2"
-nalgebra   = "0.13"
+ggez = "=0.4.0"
+byteorder = "=1.2.1"
+nphysics2d = "=0.7.2"
+nalgebra   = "=0.13.0"
+ncollide_geometry = "=0.5.1"
