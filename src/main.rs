@@ -125,7 +125,7 @@ impl App {
                 let pos = transform.translation.vector;
                 let x = pos.x as f32 * 20.0;
                 let y = pos.y as f32 * 20.0;
-                circle(ctx, DrawMode::Fill, Point2::new(x, y), 25.0, 1.0).expect("draw circle error");
+                circle(ctx, DrawMode::Fill, ::ggez::nalgebra::Point2::new(x, y), 25.0, 1.0).expect("draw circle error");
                 (x,y)
             };
 //            println!("transform: {:?}", transform);

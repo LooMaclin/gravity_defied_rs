@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["loomaclin <loo.maclin@protonmail.com>"]
 
 [dependencies]
-ggez = "=0.4.0"
+ggez = "=0.4.4"
 byteorder = "=1.2.1"
 nphysics2d = "=0.7.2"
 nalgebra   = "=0.13.0"
